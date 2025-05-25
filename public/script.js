@@ -185,6 +185,13 @@ function addMessageToChat(msg) {
     chat.scrollTop = chat.scrollHeight;
 }
 
+messageInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault(); // Empêche la nouvelle ligne
+        form.dispatchEvent(new Event('submit'));
+    }
+});
+
 function toggleReaction(messageId, emoji, reactionsDisplay) {
     if (!userReactions[messageId]) {
         userReactions[messageId] = new Set();

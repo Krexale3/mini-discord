@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #2f3136;
     color: #ddd;
     display: flex;
@@ -60,6 +60,7 @@ h1 {
     animation: fadeIn 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
+    color: #ddd;
 }
 
 .message.self {
@@ -98,7 +99,7 @@ h1 {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.message .reactions {
+.message .reactions-display {
     margin-top: 5px;
     display: flex;
     gap: 8px;
@@ -121,31 +122,32 @@ h1 {
     color: #fff;
 }
 
-/* Mention surlignée */
+/* Mention highlight */
 .message.mention {
     background-color: #3a3f54;
     border-left: 5px solid #ff9f43;
 }
 
+/* Bouton + pour réactions, plus petit comme crayon et poubelle */
 .add-reaction-btn {
-    font-size: 18px;
-    /* Même taille que les autres boutons */
-    padding: 4px 6px;
-    /* Ajuste le padding pour que ce soit compact */
+    font-size: 1.1rem;
+    /* réduit de 18px à environ 17-18px => 1.1rem */
+    padding: 2px 6px;
     margin-left: 8px;
-    /* Espace entre le bouton et le message */
     cursor: pointer;
     background: transparent;
     border: none;
     color: #444;
     vertical-align: middle;
+    user-select: none;
+    line-height: 1;
 }
 
 .add-reaction-btn:hover {
     color: #000;
 }
 
-/* Indicateur de frappe */
+/* Typing indicator */
 #typing {
     height: 20px;
     font-style: italic;
@@ -154,7 +156,7 @@ h1 {
     min-height: 18px;
 }
 
-/* Notifications (petite bulle en haut) */
+/* Notifications */
 #notification {
     position: fixed;
     top: 10px;
@@ -175,9 +177,11 @@ h1 {
     pointer-events: auto;
 }
 
+/* Formulaire */
 #form {
     display: flex;
     gap: 0.5rem;
+    align-items: center;
 }
 
 #message {
@@ -190,9 +194,11 @@ h1 {
     font-size: 1rem;
     resize: none;
     overflow: hidden;
+    min-height: 40px;
+    max-height: 100px;
 }
 
-button {
+button[type="submit"] {
     padding: 0.8rem 1.5rem;
     border-radius: 20px;
     border: none;
@@ -201,12 +207,14 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: background 0.2s ease;
+    min-width: 80px;
 }
 
-button:hover {
+button[type="submit"]:hover {
     background: #5b6eae;
 }
 
+/* Responsive pour mobile */
 @media (max-width: 600px) {
     .container {
         padding: 0.5rem;
@@ -221,7 +229,7 @@ button:hover {
     }
 
     #message,
-    button {
+    button[type="submit"] {
         width: 100%;
     }
 
@@ -230,6 +238,7 @@ button:hover {
     }
 }
 
+/* Animation fadeIn */
 @keyframes fadeIn {
     from {
         opacity: 0;
