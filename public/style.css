@@ -1,0 +1,21 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+#chat {
+    height: 80vh;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+#form {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+#message {
+    flex: 1;
+}
