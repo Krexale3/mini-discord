@@ -3,19 +3,23 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini Discord</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat Simplifié</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <h1>Mini Discord</h1>
-    <div id="chat"></div>
-    <form id="form">
-        <input id="message" autocomplete="off" placeholder="Votre message..." />
-        <button>Envoyer</button>
-    </form>
-
+    <div id="notification"></div>
+    <div class="container">
+        <h1>Chat simplifié</h1>
+        <div id="userList">Utilisateurs connectés : </div>
+        <div id="chat"></div>
+        <div id="typing"></div>
+        <form id="form">
+            <textarea id="message" rows="1" placeholder="Écris un message..."></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 </body>

@@ -6,6 +6,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
     "express": "^5.1.0",
     "socket.io": "^4.8.1",
     "start": "^5.1.0"
