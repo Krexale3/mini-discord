@@ -1,163 +1,85 @@
-/* Reset basique */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     background: #2f3136;
     color: #ddd;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     padding: 1rem;
+    margin: 0;
 }
 
-/* Titre */
-h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #fff;
-    font-weight: 700;
-    text-shadow: 0 0 5px #7289da;
+/* Conteneur principal pour limiter la largeur sur grands écrans */
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 /* Zone de chat */
 #chat {
     flex: 1;
-    background: #36393f;
-    border-radius: 8px;
-    padding: 1rem;
     overflow-y: auto;
-    box-shadow: inset 0 0 10px #202225;
+    padding: 1rem;
+    background: #36393f;
+    border-radius: 10px;
     margin-bottom: 1rem;
 }
 
 /* Messages */
 .message {
-    margin-bottom: 0.8rem;
-    padding: 0.5rem 1rem;
     background: #40444b;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
     border-radius: 5px;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    transition: background 0.3s;
-}
-
-.message:hover {
-    background: #4f545c;
-}
-
-.message strong {
-    color: #7289da;
 }
 
 /* Formulaire */
 #form {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 #message {
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     padding: 0.8rem 1rem;
     border-radius: 20px;
     border: none;
     background: #40444b;
     color: #ddd;
     font-size: 1rem;
-    outline: none;
-    transition: background 0.3s;
-}
-
-#message::placeholder {
-    color: #b9bbbe;
-}
-
-#message:focus {
-    background: #4f545c;
 }
 
 button {
-    padding: 0 1.5rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 20px;
     border: none;
     background: #7289da;
     color: white;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
-button:hover {
-    background: #5b6eae;
-}
-
-/* Scrollbar personnalisée pour #chat */
-#chat::-webkit-scrollbar {
-    width: 8px;
-}
-
-#chat::-webkit-scrollbar-track {
-    background: #2f3136;
-    border-radius: 8px;
-}
-
-#chat::-webkit-scrollbar-thumb {
-    background: #7289da;
-    border-radius: 8px;
-}
-
-/* === PARTIE RESPONSIVE === */
-
-/* Pour petits écrans (téléphones) */
+/* Responsive: petit écran */
 @media (max-width: 600px) {
-    body {
-        padding: 0.5rem;
+    #form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
     }
 
     #chat {
         padding: 0.5rem;
-        margin-bottom: 0.8rem;
     }
 
     #message {
-        font-size: 0.9rem;
-        padding: 0.6rem 0.8rem;
-        border-radius: 15px;
-    }
-
-    button {
-        padding: 0 1rem;
-        font-size: 0.9rem;
-    }
-}
-
-/* Pour tablettes */
-@media (min-width: 601px) and (max-width: 1024px) {
-    body {
-        padding: 1rem 2rem;
-    }
-
-    #chat {
-        padding: 1rem 1.5rem;
-    }
-
-    #message {
-        font-size: 1rem;
-        padding: 0.8rem 1rem;
-    }
-
-    button {
-        font-size: 1rem;
-    }
-}
-
-/* Pour grands écrans (ordi, TV) */
-@media (min-width: 1025px) {
-    body {
-        max-width: 900px;
-        margin: 0 auto;
+        width: 100%;
     }
 }
